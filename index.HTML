@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 25.8.4.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 0.79in }
+		p { margin-bottom: 0.1in; line-height: 115%; background: transparent }
+		pre { font-size: 10pt; font-family: "Liberation Mono", monospace; background: transparent }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;/&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;/&gt;
+&lt;title&gt;DigiKavach — India's Digital Shield for Children&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&amp;family=Syne:wght@400;500;600;700;800&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&amp;display=swap&quot; rel=&quot;stylesheet&quot;/&gt;
+&lt;style&gt;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080F;
+  --bg2:#070D1A;
+  --bg3:#0A1220;
+  --saffron:#FF6B1A;
+  --saffron2:#FF8C42;
+  --blue:#1E6FE8;
+  --cyan:#00C2FF;
+  --gold:#FFB347;
+  --text:#F0F6FF;
+  --muted:#6B82A8;
+  --border:rgba(30,111,232,0.15);
+  --card:rgba(7,13,26,0.9);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* ── CURSOR ── */
+#cursor{
+  position:fixed;width:12px;height:12px;
+  background:var(--saffron);border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:transform .1s,width .3s,height .3s,opacity .3s;
+  mix-blend-mode:difference;
+}
+#cursor-ring{
+  position:fixed;width:36px;height:36px;
+  border:1.5px solid rgba(255,107,26,0.5);
+  border-radius:50%;pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);
+  transition:transform .15s ease,width .3s,height .3s;
+}
+body:hover #cursor{opacity:1}
+
+/* ── CANVAS ── */
+#hero-canvas{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  z-index:1;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 7%;
+  background:rgba(4,8,15,0.6);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.logo{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:1.35rem;
+  color:var(--text);text-decoration:none;
+  display:flex;align-items:center;gap:.6rem;
+  letter-spacing:-.5px;
+}
+.logo-mark{
+  width:34px;height:34px;
+  background:linear-gradient(135deg,var(--saffron),var(--gold));
+  border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;
+}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{
+  color:var(--muted);text-decoration:none;font-size:.88rem;
+  letter-spacing:.02em;transition:color .2s;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{
+  background:var(--saffron);color:#fff!important;
+  padding:.55rem 1.4rem;border-radius:8px;
+  font-weight:500;font-size:.88rem;
+  transition:background .2s,transform .15s!important;
+  letter-spacing:.02em;
+}
+.nav-cta:hover{background:var(--saffron2)!important;transform:translateY(-1px)!important}
+
+/* ── HERO ── */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  padding:8rem 6% 5rem;
+  overflow:hidden;
+}
+.hero-content{position:relative;z-index:2}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-size:.78rem;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--saffron);
+  background:rgba(255,107,26,0.08);
+  border:1px solid rgba(255,107,26,0.25);
+  padding:.4rem 1rem;border-radius:100px;
+  margin-bottom:2rem;
+  animation:fadeUp .6s ease both;
+}
+.eyebrow-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--saffron);
+  animation:blink 2s infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(3rem,7vw,6rem);
+  font-weight:800;line-height:1.02;
+  letter-spacing:-.04em;
+  max-width:900px;
+  animation:fadeUp .7s .1s ease both;
+}
+h1 .line2{
+  display:block;
+  background:linear-gradient(90deg,var(--saffron),var(--gold),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.hero-sub{
+  font-size:1.1rem;color:var(--muted);
+  max-width:540px;margin:1.8rem auto 0;
+  font-weight:300;line-height:1.8;
+  animation:fadeUp .7s .2s ease both;
+}
+
+/* ── WAITLIST ── */
+.wl-form{
+  display:flex;gap:.75rem;flex-wrap:wrap;
+  justify-content:center;
+  margin-top:2.8rem;
+  animation:fadeUp .7s .3s ease both;
+}
+.wl-input{
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--border);
+  color:var(--text);
+  padding:.9rem 1.4rem;border-radius:10px;
+  font-family:'DM Sans',sans-serif;font-size:.92rem;
+  width:270px;outline:none;
+  transition:border .25s,background .25s;
+}
+.wl-input:focus{
+  border-color:var(--saffron);
+  background:rgba(255,107,26,0.04);
+}
+.wl-input::placeholder{color:var(--muted)}
+.wl-select{
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--border);
+  color:var(--muted);
+  padding:.9rem 1.2rem;border-radius:10px;
+  font-family:'DM Sans',sans-serif;font-size:.92rem;
+  outline:none;cursor:pointer;
+  transition:border .25s;
+}
+.wl-select:focus{border-color:var(--saffron);color:var(--text)}
+.wl-select option{background:#070D1A}
+.btn-main{
+  background:linear-gradient(135deg,var(--saffron),var(--saffron2));
+  color:#fff;border:none;
+  padding:.9rem 2rem;border-radius:10px;
+  font-family:'Syne',sans-serif;font-size:.92rem;font-weight:700;
+  cursor:pointer;letter-spacing:.03em;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 4px 28px rgba(255,107,26,0.35);
+  white-space:nowrap;
+}
+.btn-main:hover{transform:translateY(-3px);box-shadow:0 10px 40px rgba(255,107,26,0.5)}
+
+.trust{
+  font-size:.78rem;color:var(--muted);
+  margin-top:1.2rem;
+  animation:fadeUp .7s .4s ease both;
+}
+
+/* ── SCROLL INDICATOR ── */
+.scroll-hint{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  z-index:2;display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  opacity:.5;animation:fadeUp 1s .8s ease both;
+}
+.scroll-line{
+  width:1px;height:48px;
+  background:linear-gradient(to bottom,transparent,var(--saffron));
+  animation:scrollPulse 2s infinite;
+}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(.8)}50%{opacity:1;transform:scaleY(1)}}
+.scroll-text{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+
+/* ── STATS ── */
+.stats{
+  display:flex;justify-content:center;flex-wrap:wrap;
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:2.5rem 6%;
+}
+.stat{
+  flex:1;min-width:180px;text-align:center;
+  padding:1rem 2rem;
+  border-right:1px solid var(--border);
+}
+.stat:last-child{border-right:none}
+.stat-n{
+  font-family:'Syne',sans-serif;
+  font-size:2.4rem;font-weight:800;
+  color:var(--saffron);display:block;
+  letter-spacing:-.03em;
+}
+.stat-l{font-size:.8rem;color:var(--muted);margin-top:.3rem}
+
+/* ── SECTIONS ── */
+section{padding:7rem 7%;position:relative;z-index:1}
+.sec-label{
+  font-size:.72rem;font-weight:600;
+  letter-spacing:.15em;text-transform:uppercase;
+  color:var(--saffron);display:block;margin-bottom:.8rem;
+}
+h2{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2rem,4vw,3rem);
+  font-weight:800;line-height:1.1;
+  letter-spacing:-.03em;margin-bottom:1.2rem;
+}
+.sec-sub{
+  color:var(--muted);max-width:500px;
+  font-size:1rem;line-height:1.8;font-weight:300;
+}
+
+/* ── PROBLEM SECTION ── */
+.prob-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1.5rem;margin-top:4rem;
+}
+.prob-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;padding:2rem;
+  position:relative;overflow:hidden;
+  transition:border-color .3s,transform .3s;
+  opacity:0;transform:translateY(30px);
+  transition:opacity .6s,transform .6s,border-color .3s;
+}
+.prob-card.visible{opacity:1;transform:translateY(0)}
+.prob-card:hover{border-color:rgba(255,107,26,0.4);transform:translateY(-6px)!important}
+.prob-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--saffron),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.prob-card:hover::before{opacity:1}
+.prob-num{
+  font-family:'Syne',sans-serif;
+  font-size:3.5rem;font-weight:800;
+  color:rgba(255,107,26,0.1);
+  line-height:1;margin-bottom:.75rem;
+}
+.prob-card h3{
+  font-family:'Syne',sans-serif;
+  font-size:1.1rem;font-weight:700;margin-bottom:.6rem;
+}
+.prob-card p{color:var(--muted);font-size:.88rem;line-height:1.75}
+.prob-tag{
+  display:inline-block;
+  background:rgba(255,107,26,0.1);
+  color:var(--saffron);
+  font-size:.72rem;font-weight:600;
+  padding:.25rem .7rem;border-radius:100px;
+  margin-bottom:1rem;
+}
+
+/* ── 3D SECTION ── */
+.product-hero{
+  background:var(--bg2);
+  padding:7rem 7%;
+  position:relative;overflow:hidden;
+}
+.product-hero::before{
+  content:'';position:absolute;
+  top:-200px;right:-200px;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(30,111,232,0.06),transparent 70%);
+}
+.prod-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:5rem;align-items:center;
+}
+.prod-canvas-wrap{
+  position:relative;height:440px;border-radius:24px;
+  background:var(--bg3);
+  border:1px solid var(--border);overflow:hidden;
+}
+#prod-canvas{width:100%;height:100%;display:block}
+.prod-text .sec-label{margin-bottom:.5rem}
+.features{list-style:none;margin-top:2rem}
+.features li{
+  display:flex;align-items:flex-start;gap:1rem;
+  padding:1rem 0;border-bottom:1px solid var(--border);
+  opacity:0;transform:translateX(20px);
+  transition:opacity .5s,transform .5s;
+}
+.features li.visible{opacity:1;transform:translateX(0)}
+.features li:last-child{border-bottom:none}
+.feat-icon{
+  width:36px;height:36px;min-width:36px;
+  background:rgba(255,107,26,0.1);border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;
+}
+.feat-title{font-weight:500;font-size:.95rem;margin-bottom:.2rem}
+.feat-sub{color:var(--muted);font-size:.83rem;line-height:1.6}
+
+/* ── HOW IT WORKS ── */
+.how{background:var(--bg)}
+.steps-track{
+  display:flex;gap:0;margin-top:5rem;
+  position:relative;
+}
+.steps-track::before{
+  content:'';position:absolute;
+  top:28px;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent 5%,var(--border) 20%,var(--border) 80%,transparent 95%);
+}
+.step{
+  flex:1;text-align:center;padding:0 1rem;
+  opacity:0;transform:translateY(24px);
+  transition:opacity .6s,transform .6s;
+}
+.step.visible{opacity:1;transform:translateY(0)}
+.step-bubble{
+  width:56px;height:56px;
+  background:var(--bg2);border:2px solid var(--border);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:1.2rem;color:var(--saffron);
+  margin:0 auto 1.75rem;
+  position:relative;z-index:1;
+  transition:border-color .3s,background .3s,transform .3s;
+}
+.step:hover .step-bubble{
+  border-color:var(--saffron);
+  background:rgba(255,107,26,0.1);
+  transform:scale(1.1);
+}
+.step h3{
+  font-family:'Syne',sans-serif;
+  font-weight:700;font-size:1rem;margin-bottom:.6rem;
+}
+.step p{font-size:.83rem;color:var(--muted);line-height:1.7}
+
+/* ── AUDIENCE ── */
+.aud-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2rem;margin-top:4rem;
+}
+.aud-card{
+  border-radius:22px;padding:2.5rem;
+  border:1px solid var(--border);
+  position:relative;overflow:hidden;
+  opacity:0;transform:translateY(30px);
+  transition:opacity .6s,transform .6s,border-color .3s;
+}
+.aud-card.visible{opacity:1;transform:translateY(0)}
+.aud-card:hover{border-color:rgba(255,107,26,0.3)}
+.aud-card.ac-p{background:linear-gradient(135deg,rgba(255,107,26,0.06),rgba(255,179,71,0.03))}
+.aud-card.ac-d{background:linear-gradient(135deg,rgba(30,111,232,0.06),rgba(0,194,255,0.03))}
+.aud-tag{
+  font-size:.72rem;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;
+  padding:.3rem .85rem;border-radius:100px;
+  display:inline-block;margin-bottom:1.25rem;
+}
+.ac-p .aud-tag{background:rgba(255,107,26,0.12);color:var(--saffron)}
+.ac-d .aud-tag{background:rgba(30,111,232,0.12);color:var(--cyan)}
+.aud-card h3{
+  font-family:'Syne',sans-serif;
+  font-size:1.5rem;font-weight:800;margin-bottom:.8rem;
+}
+.aud-card p{color:var(--muted);font-size:.9rem;line-height:1.8;margin-bottom:1.5rem}
+.blist{list-style:none}
+.blist li{
+  display:flex;align-items:center;gap:.65rem;
+  font-size:.88rem;padding:.35rem 0;
+}
+.blist li::before{
+  content:'';width:18px;height:18px;
+  border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.ac-p .blist li::before{background:rgba(255,107,26,0.15)}
+.ac-d .blist li::before{background:rgba(30,111,232,0.15)}
+
+/* ── FINAL CTA ── */
+.cta{
+  text-align:center;padding:9rem 7%;
+  position:relative;overflow:hidden;
+}
+.cta::before{
+  content:'';position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:900px;height:500px;
+  background:radial-gradient(ellipse,rgba(255,107,26,0.07) 0%,transparent 70%);
+}
+#cta-canvas{
+  position:absolute;inset:0;width:100%;height:100%;
+  z-index:0;
+}
+.cta-content{position:relative;z-index:2}
+.cta h2{max-width:640px;margin:0 auto 1rem}
+.cta p{color:var(--muted);max-width:460px;margin:0 auto 2.5rem;font-size:.95rem}
+.india-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(255,107,26,0.1);
+  border:1px solid rgba(255,107,26,0.2);
+  color:var(--saffron);font-size:.78rem;font-weight:500;
+  padding:.35rem .9rem;border-radius:100px;
+  margin-bottom:2rem;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  padding:2.5rem 7%;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+}
+footer p{color:var(--muted);font-size:.8rem}
+
+/* ── TOAST ── */
+#toast{
+  position:fixed;bottom:2rem;right:2rem;
+  background:linear-gradient(135deg,var(--saffron),var(--saffron2));
+  color:#fff;
+  padding:1rem 1.5rem;border-radius:12px;
+  font-weight:500;font-size:.88rem;
+  transform:translateY(80px);opacity:0;
+  transition:all .4s cubic-bezier(.34,1.56,.64,1);
+  z-index:999;
+  box-shadow:0 8px 40px rgba(255,107,26,0.4);
+}
+#toast.show{transform:translateY(0);opacity:1}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(28px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .prob-grid,.aud-grid,.prod-inner{grid-template-columns:1fr}
+  .steps-track{flex-direction:column;gap:2rem}
+  .steps-track::before{display:none}
+  .stat{border-right:none;border-bottom:1px solid var(--border)}
+  .stat:last-child{border-bottom:none}
+  .wl-form{flex-direction:column;align-items:center}
+  .wl-input,.wl-select{width:100%;max-width:320px}
+  footer{flex-direction:column;text-align:center}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;!-- CUSTOM CURSOR --&gt;
+&lt;div id=&quot;cursor&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;cursor-ring&quot;&gt;&lt;/div&gt;
+
+&lt;!-- NAV --&gt;
+&lt;nav&gt;
+  &lt;a href=&quot;#&quot; class=&quot;logo&quot;&gt;
+    &lt;div class=&quot;logo-mark&quot;&gt;🛡️&lt;/div&gt;
+    DigiKavach
+  &lt;/a&gt;
+  &lt;div class=&quot;nav-links&quot;&gt;
+    &lt;a href=&quot;#problem&quot;&gt;The Problem&lt;/a&gt;
+    &lt;a href=&quot;#product&quot;&gt;Our Shield&lt;/a&gt;
+    &lt;a href=&quot;#how&quot;&gt;How It Works&lt;/a&gt;
+    &lt;a href=&quot;#waitlist&quot; class=&quot;nav-cta&quot;&gt;Get Early Access&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;!-- HERO --&gt;
+&lt;section class=&quot;hero&quot;&gt;
+  &lt;canvas id=&quot;hero-canvas&quot;&gt;&lt;/canvas&gt;
+  &lt;div class=&quot;hero-content&quot;&gt;
+    &lt;div class=&quot;eyebrow&quot;&gt;
+      &lt;span class=&quot;eyebrow-dot&quot;&gt;&lt;/span&gt;
+      Launching across India · 2025
+    &lt;/div&gt;
+    &lt;h1&gt;
+      India's Children Deserve&lt;br/&gt;
+      &lt;span class=&quot;line2&quot;&gt;A Digital Kavach&lt;/span&gt;
+    &lt;/h1&gt;
+    &lt;p class=&quot;hero-sub&quot;&gt;
+      DigiKavach is India's first smart gaming shield — giving parents real control over screen time, and giving game developers instant compliance with India's 2025 Gaming Act.
+    &lt;/p&gt;
+    &lt;div class=&quot;wl-form&quot; id=&quot;waitlist&quot;&gt;
+      &lt;input type=&quot;email&quot; id=&quot;h-email&quot; class=&quot;wl-input&quot; placeholder=&quot;Your email address&quot;/&gt;
+      &lt;select id=&quot;h-type&quot; class=&quot;wl-select&quot;&gt;
+        &lt;option value=&quot;&quot; disabled selected&gt;I am a…&lt;/option&gt;
+        &lt;option value=&quot;parent&quot;&gt;Parent&lt;/option&gt;
+        &lt;option value=&quot;developer&quot;&gt;Game Developer&lt;/option&gt;
+        &lt;option value=&quot;school&quot;&gt;School / Educator&lt;/option&gt;
+        &lt;option value=&quot;investor&quot;&gt;Investor&lt;/option&gt;
+      &lt;/select&gt;
+      &lt;button class=&quot;btn-main&quot; onclick=&quot;join('h-email','h-type')&quot;&gt;Claim Your Spot →&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;trust&quot;&gt;🔒 No spam. No card needed. Just early access.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;scroll-hint&quot;&gt;
+    &lt;span class=&quot;scroll-text&quot;&gt;Scroll&lt;/span&gt;
+    &lt;div class=&quot;scroll-line&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- STATS --&gt;
+&lt;div class=&quot;stats&quot;&gt;
+  &lt;div class=&quot;stat&quot;&gt;&lt;span class=&quot;stat-n&quot; data-target=&quot;591&quot;&gt;0&lt;/span&gt;&lt;div class=&quot;stat-l&quot;&gt;Million Active Gamers in India&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;stat&quot;&gt;&lt;span class=&quot;stat-n&quot; data-target=&quot;40&quot; data-suffix=&quot;%&quot;&gt;0&lt;/span&gt;&lt;div class=&quot;stat-l&quot;&gt;Are Under 18 Years Old&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;stat&quot;&gt;&lt;span class=&quot;stat-n&quot; data-target=&quot;8.4&quot;&gt;0&lt;/span&gt;&lt;div class=&quot;stat-l&quot;&gt;Billion Game Downloads / Year&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;stat&quot;&gt;&lt;span class=&quot;stat-n&quot; data-target=&quot;0&quot; data-prefix=&quot;₹&quot;&gt;0&lt;/span&gt;&lt;div class=&quot;stat-l&quot;&gt;Enforcement Tech Existed — Until Now&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- PROBLEM --&gt;
+&lt;section id=&quot;problem&quot;&gt;
+  &lt;span class=&quot;sec-label&quot;&gt;The Crisis&lt;/span&gt;
+  &lt;h2&gt;Every Indian Parent&lt;br/&gt;Feels This Fear&lt;/h2&gt;
+  &lt;p class=&quot;sec-sub&quot;&gt;Mobile gaming addiction among Indian children is a silent epidemic. The tools don't exist — until now.&lt;/p&gt;
+  &lt;div class=&quot;prob-grid&quot;&gt;
+    &lt;div class=&quot;prob-card&quot;&gt;
+      &lt;div class=&quot;prob-num&quot;&gt;01&lt;/div&gt;
+      &lt;span class=&quot;prob-tag&quot;&gt;591M+ Gamers&lt;/span&gt;
+      &lt;h3&gt;No Indian Solution Exists&lt;/h3&gt;
+      &lt;p&gt;Every parental control app in India is foreign-built — designed for Western households, priced in dollars, built for devices Indian families don't use.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;prob-card&quot;&gt;
+      &lt;div class=&quot;prob-num&quot;&gt;02&lt;/div&gt;
+      &lt;span class=&quot;prob-tag&quot;&gt;Shared Devices&lt;/span&gt;
+      &lt;h3&gt;One Phone, Three Children&lt;/h3&gt;
+      &lt;p&gt;Most Indian families share a single smartphone. No existing app handles multiple child profiles on one device. We built this from the ground up for India.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;prob-card&quot;&gt;
+      &lt;div class=&quot;prob-num&quot;&gt;03&lt;/div&gt;
+      &lt;span class=&quot;prob-tag&quot;&gt;Law Without Teeth&lt;/span&gt;
+      &lt;h3&gt;2025 Gaming Act Has No Tech&lt;/h3&gt;
+      &lt;p&gt;India passed the Online Gaming Act mandating minor protections in 2025 — but zero technology infrastructure exists to actually enforce it for casual games.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;prob-card&quot;&gt;
+      &lt;div class=&quot;prob-num&quot;&gt;04&lt;/div&gt;
+      &lt;span class=&quot;prob-tag&quot;&gt;₹5,000/yr Foreign Apps&lt;/span&gt;
+      &lt;h3&gt;Global Apps Are Unaffordable&lt;/h3&gt;
+      &lt;p&gt;Qustodio, Bark, Net Nanny — all USD-priced for Western incomes. Indian families need protection that respects Indian budgets and Indian realities.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- PRODUCT 3D --&gt;
+&lt;section class=&quot;product-hero&quot; id=&quot;product&quot;&gt;
+  &lt;div class=&quot;prod-inner&quot;&gt;
+    &lt;div class=&quot;prod-canvas-wrap&quot;&gt;
+      &lt;canvas id=&quot;prod-canvas&quot;&gt;&lt;/canvas&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;prod-text&quot;&gt;
+      &lt;span class=&quot;sec-label&quot;&gt;The Shield&lt;/span&gt;
+      &lt;h2&gt;Two Products.&lt;br/&gt;One Digital Kavach.&lt;/h2&gt;
+      &lt;p class=&quot;sec-sub&quot;&gt;A parent app that puts control back in your hands, and an SDK that lets game developers comply in under an hour.&lt;/p&gt;
+      &lt;ul class=&quot;features&quot;&gt;
+        &lt;li&gt;
+          &lt;div class=&quot;feat-icon&quot;&gt;⏱️&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;feat-title&quot;&gt;Smart Time Limits&lt;/div&gt;
+            &lt;div class=&quot;feat-sub&quot;&gt;Set daily limits per game or category. Auto-locks when time is up — no arguments, no negotiations.&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class=&quot;feat-icon&quot;&gt;👶&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;feat-title&quot;&gt;Multi-Child Profiles&lt;/div&gt;
+            &lt;div class=&quot;feat-sub&quot;&gt;Manage all your children from one parent phone — each with their own rules, on a single shared device.&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class=&quot;feat-icon&quot;&gt;🌙&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;feat-title&quot;&gt;Bedtime &amp; Study Lock&lt;/div&gt;
+            &lt;div class=&quot;feat-sub&quot;&gt;Automatically block gaming during school hours and bedtime. You set it once. DigiKavach enforces it forever.&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class=&quot;feat-icon&quot;&gt;📊&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;feat-title&quot;&gt;Weekly Insight Reports&lt;/div&gt;
+            &lt;div class=&quot;feat-sub&quot;&gt;Every Sunday, get a clear breakdown — what was played, for how long, and what patterns to watch.&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class=&quot;feat-icon&quot;&gt;🇮🇳&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;feat-title&quot;&gt;Hindi &amp; Regional Languages&lt;/div&gt;
+            &lt;div class=&quot;feat-sub&quot;&gt;Full support in Hindi and English — because every Indian parent deserves this in their language.&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- HOW IT WORKS --&gt;
+&lt;section class=&quot;how&quot; id=&quot;how&quot;&gt;
+  &lt;span class=&quot;sec-label&quot;&gt;How It Works&lt;/span&gt;
+  &lt;h2&gt;Simple for Parents.&lt;br/&gt;Powerful Under the Hood.&lt;/h2&gt;
+  &lt;div class=&quot;steps-track&quot;&gt;
+    &lt;div class=&quot;step&quot;&gt;
+      &lt;div class=&quot;step-bubble&quot;&gt;1&lt;/div&gt;
+      &lt;h3&gt;Parent Signs Up&lt;/h3&gt;
+      &lt;p&gt;Create your DigiKavach account. Add your children's names, ages, and their devices.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;step&quot;&gt;
+      &lt;div class=&quot;step-bubble&quot;&gt;2&lt;/div&gt;
+      &lt;h3&gt;Install in 2 Minutes&lt;/h3&gt;
+      &lt;p&gt;Install the child agent app on their Android phone. No rooting, no tech skills needed.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;step&quot;&gt;
+      &lt;div class=&quot;step-bubble&quot;&gt;3&lt;/div&gt;
+      &lt;h3&gt;Set Your Rules&lt;/h3&gt;
+      &lt;p&gt;Choose daily time limits, study blackouts, and bedtime locks. Per game or for everything.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;step&quot;&gt;
+      &lt;div class=&quot;step-bubble&quot;&gt;4&lt;/div&gt;
+      &lt;h3&gt;DigiKavach Protects&lt;/h3&gt;
+      &lt;p&gt;Real-time monitoring, automatic enforcement, weekly reports — all from your parent app.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- AUDIENCE --&gt;
+&lt;section style=&quot;background:var(--bg2)&quot;&gt;
+  &lt;span class=&quot;sec-label&quot;&gt;Who It's For&lt;/span&gt;
+  &lt;h2&gt;Built for Parents.&lt;br/&gt;Trusted by Developers.&lt;/h2&gt;
+  &lt;div class=&quot;aud-grid&quot;&gt;
+    &lt;div class=&quot;aud-card ac-p&quot;&gt;
+      &lt;span class=&quot;aud-tag&quot;&gt;For Parents&lt;/span&gt;
+      &lt;h3&gt;Take back control — without being the villain&lt;/h3&gt;
+      &lt;p&gt;DigiKavach protects your child's screen time so you don't have to argue every evening. Set the rules once, let the kavach enforce them.&lt;/p&gt;
+      &lt;ul class=&quot;blist&quot;&gt;
+        &lt;li&gt;Works on shared family phones&lt;/li&gt;
+        &lt;li&gt;Hindi &amp; English support&lt;/li&gt;
+        &lt;li&gt;No tech skills needed&lt;/li&gt;
+        &lt;li&gt;Free tier — always&lt;/li&gt;
+        &lt;li&gt;₹99/month for premium&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;aud-card ac-d&quot;&gt;
+      &lt;span class=&quot;aud-tag&quot;&gt;For Game Developers&lt;/span&gt;
+      &lt;h3&gt;Comply with the 2025 Gaming Act in under an hour&lt;/h3&gt;
+      &lt;p&gt;Our SDK gives your game full compliance with India's minor protection laws — age verification, session limits, parental consent — all in one integration.&lt;/p&gt;
+      &lt;ul class=&quot;blist&quot;&gt;
+        &lt;li&gt;One-hour Android integration&lt;/li&gt;
+        &lt;li&gt;DigiLocker age verification&lt;/li&gt;
+        &lt;li&gt;Audit-ready compliance reports&lt;/li&gt;
+        &lt;li&gt;Free for indie developers&lt;/li&gt;
+        &lt;li&gt;MeitY-aligned standards&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- FINAL CTA --&gt;
+&lt;section class=&quot;cta&quot; id=&quot;cta-sec&quot;&gt;
+  &lt;canvas id=&quot;cta-canvas&quot;&gt;&lt;/canvas&gt;
+  &lt;div class=&quot;cta-content&quot;&gt;
+    &lt;div class=&quot;india-badge&quot;&gt;🇮🇳 Made in India, for India&lt;/div&gt;
+    &lt;h2&gt;Be the First to Shield&lt;br/&gt;Your Child's Digital World&lt;/h2&gt;
+    &lt;p&gt;Join 500+ parents and developers on the early access list. First members get 6 months free when we launch.&lt;/p&gt;
+    &lt;div class=&quot;wl-form&quot;&gt;
+      &lt;input type=&quot;email&quot; id=&quot;f-email&quot; class=&quot;wl-input&quot; placeholder=&quot;Your email address&quot;/&gt;
+      &lt;select id=&quot;f-type&quot; class=&quot;wl-select&quot;&gt;
+        &lt;option value=&quot;&quot; disabled selected&gt;I am a…&lt;/option&gt;
+        &lt;option value=&quot;parent&quot;&gt;Parent&lt;/option&gt;
+        &lt;option value=&quot;developer&quot;&gt;Game Developer&lt;/option&gt;
+        &lt;option value=&quot;school&quot;&gt;School / Educator&lt;/option&gt;
+        &lt;option value=&quot;investor&quot;&gt;Investor&lt;/option&gt;
+      &lt;/select&gt;
+      &lt;button class=&quot;btn-main&quot; onclick=&quot;join('f-email','f-type')&quot;&gt;Get Early Access →&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- FOOTER --&gt;
+&lt;footer&gt;
+  &lt;a href=&quot;#&quot; class=&quot;logo&quot;&gt;
+    &lt;div class=&quot;logo-mark&quot;&gt;🛡️&lt;/div&gt;
+    DigiKavach
+  &lt;/a&gt;
+  &lt;p&gt;© 2026 DigiKavach. India's Digital Shield. · Panipat 🇮🇳&lt;/p&gt;
+  &lt;p&gt;hello@digikavach.in&lt;/p&gt;
+&lt;/footer&gt;
+
+&lt;div id=&quot;toast&quot;&gt;🎉 You're on the list! Early access coming soon.&lt;/div&gt;
+
+&lt;!-- THREE.JS --&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+/* ── CURSOR ── */
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=&gt;{
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+});
+(function animRing(){
+  rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a,button,.prob-card,.aud-card,.step').forEach(el=&gt;{
+  el.addEventListener('mouseenter',()=&gt;{cur.style.width='20px';cur.style.height='20px';ring.style.width='52px';ring.style.height='52px'});
+  el.addEventListener('mouseleave',()=&gt;{cur.style.width='12px';cur.style.height='12px';ring.style.width='36px';ring.style.height='36px'});
+});
+
+/* ── HERO 3D SCENE ── */
+(function(){
+  const canvas=document.getElementById('hero-canvas');
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(60,canvas.parentElement.clientWidth/canvas.parentElement.clientHeight,0.1,1000);
+  camera.position.set(0,0,5);
+
+  function resize(){
+    const w=canvas.parentElement.clientWidth,h=canvas.parentElement.clientHeight;
+    renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();
+  }
+  resize();window.addEventListener('resize',resize);
+
+  /* Shield shape */
+  const shieldPts=[];
+  const tw=1.4,th=2;
+  for(let i=0;i&lt;=32;i++){
+    const t=i/32*Math.PI;
+    shieldPts.push(new THREE.Vector2(Math.sin(t)*tw*(0.9+0.1*Math.cos(t*2)),Math.cos(t)*th));
+  }
+  const shapeGeo=new THREE.LatheGeometry(shieldPts.slice(0,17),32);
+  /* Build shield as wireframe + solid combo */
+  const shieldGroup=new THREE.Group();
+
+  /* Outer glow ring */
+  const torusGeo=new THREE.TorusGeometry(1.6,0.015,8,80);
+  const torusMat=new THREE.MeshBasicMaterial({color:0xFF6B1A,transparent:true,opacity:.35});
+  const torus=new THREE.Mesh(torusGeo,torusMat);
+  shieldGroup.add(torus);
+
+  const torus2Geo=new THREE.TorusGeometry(1.85,0.008,8,80);
+  const torus2Mat=new THREE.MeshBasicMaterial({color:0x1E6FE8,transparent:true,opacity:.2});
+  const torus2=new THREE.Mesh(torus2Geo,torus2Mat);
+  shieldGroup.add(torus2);
+
+  /* Icosahedron core */
+  const icoGeo=new THREE.IcosahedronGeometry(0.9,1);
+  const icoMat=new THREE.MeshPhongMaterial({
+    color:0x0A1220,emissive:0x0D2040,
+    wireframe:false,transparent:true,opacity:.9,
+    shininess:80,specular:0x1E6FE8
+  });
+  const ico=new THREE.Mesh(icoGeo,icoMat);
+  shieldGroup.add(ico);
+
+  const icoWireGeo=new THREE.IcosahedronGeometry(0.91,1);
+  const icoWireMat=new THREE.MeshBasicMaterial({color:0x1E6FE8,wireframe:true,transparent:true,opacity:.25});
+  const icoWire=new THREE.Mesh(icoWireGeo,icoWireMat);
+  shieldGroup.add(icoWire);
+
+  /* Orbit rings */
+  for(let r=0;r&lt;3;r++){
+    const rGeo=new THREE.TorusGeometry(1.1+r*.25,0.006,6,64);
+    const rMat=new THREE.MeshBasicMaterial({
+      color:r===0?0xFF6B1A:r===1?0x1E6FE8:0x00C2FF,
+      transparent:true,opacity:.15+r*.05
+    });
+    const ring=new THREE.Mesh(rGeo,rMat);
+    ring.rotation.x=Math.random()*Math.PI;
+    ring.rotation.y=Math.random()*Math.PI;
+    ring.userData={rotX:(Math.random()-.5)*.008,rotY:(Math.random()-.5)*.008};
+    shieldGroup.add(ring);
+  }
+
+  scene.add(shieldGroup);
+  shieldGroup.position.set(0,0,0);
+
+  /* Particles */
+  const pCount=280;
+  const pPos=new Float32Array(pCount*3);
+  for(let i=0;i&lt;pCount;i++){
+    pPos[i*3]=(Math.random()-0.5)*18;
+    pPos[i*3+1]=(Math.random()-0.5)*14;
+    pPos[i*3+2]=(Math.random()-0.5)*10-2;
+  }
+  const pGeo=new THREE.BufferGeometry();
+  pGeo.setAttribute('position',new THREE.BufferAttribute(pPos,3));
+  const pMat=new THREE.PointsMaterial({color:0xFF6B1A,size:.035,transparent:true,opacity:.55});
+  const particles=new THREE.Points(pGeo,pMat);
+  scene.add(particles);
+
+  /* Lights */
+  const amb=new THREE.AmbientLight(0x0A1628,2);scene.add(amb);
+  const pt1=new THREE.PointLight(0xFF6B1A,2.5,10);pt1.position.set(3,3,3);scene.add(pt1);
+  const pt2=new THREE.PointLight(0x1E6FE8,2,10);pt2.position.set(-3,-2,2);scene.add(pt2);
+  const pt3=new THREE.PointLight(0x00C2FF,1.5,8);pt3.position.set(0,4,1);scene.add(pt3);
+
+  /* Mouse parallax */
+  let tmx=0,tmy=0;
+  document.addEventListener('mousemove',e=&gt;{
+    tmx=(e.clientX/window.innerWidth-.5)*2;
+    tmy=(e.clientY/window.innerHeight-.5)*2;
+  });
+
+  let t=0;
+  function animate(){
+    requestAnimationFrame(animate);t+=.008;
+    shieldGroup.rotation.y+=.006;
+    shieldGroup.rotation.x+=(tmy*.1-shieldGroup.rotation.x)*.03;
+    shieldGroup.rotation.z+=(-tmx*.05-shieldGroup.rotation.z)*.03;
+    ico.rotation.y-=.012;
+    icoWire.rotation.y+=.015;
+    shieldGroup.children.filter((c,i)=&gt;i&gt;2&amp;&amp;i&lt;6).forEach(r=&gt;{
+      r.rotation.x+=r.userData.rotX;r.rotation.y+=r.userData.rotY;
+    });
+    torus.rotation.z+=.01;torus.material.opacity=.25+.1*Math.sin(t*1.5);
+    torus2.rotation.z-=.007;
+    particles.rotation.y+=.0008;particles.rotation.x+=.0003;
+    pt1.intensity=2.2+.8*Math.sin(t*2);
+    renderer.render(scene,camera);
+  }
+  animate();
+})();
+
+/* ── PRODUCT 3D SCENE ── */
+(function(){
+  const canvas=document.getElementById('prod-canvas');
+  if(!canvas)return;
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(55,1,0.1,100);
+  camera.position.set(0,0,4.5);
+
+  function resize(){
+    const w=canvas.parentElement.clientWidth,h=canvas.parentElement.clientHeight;
+    renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();
+  }
+  resize();window.addEventListener('resize',resize);
+
+  /* Floating phone-like shape */
+  const group=new THREE.Group();
+  const boxGeo=new THREE.BoxGeometry(1.2,2,0.12,1,1,1);
+  const boxMat=new THREE.MeshPhongMaterial({color:0x0D1830,shininess:120,specular:0x3366FF,transparent:true,opacity:.95});
+  const box=new THREE.Mesh(boxGeo,boxMat);
+  group.add(box);
+
+  /* Screen */
+  const scrGeo=new THREE.PlaneGeometry(1.0,1.65);
+  const scrMat=new THREE.MeshBasicMaterial({color:0x050D1F});
+  const scr=new THREE.Mesh(scrGeo,scrMat);
+  scr.position.z=.07;group.add(scr);
+
+  /* Shield on screen */
+  const shGeo=new THREE.OctahedronGeometry(.38,0);
+  const shMat=new THREE.MeshPhongMaterial({color:0xFF6B1A,emissive:0x331400,shininess:100,transparent:true,opacity:.9});
+  const sh=new THREE.Mesh(shGeo,shMat);
+  sh.position.set(0,.2,.1);group.add(sh);
+
+  const shWGeo=new THREE.OctahedronGeometry(.39,0);
+  const shWMat=new THREE.MeshBasicMaterial({color:0xFF8C42,wireframe:true,transparent:true,opacity:.4});
+  const shW=new THREE.Mesh(shWGeo,shWMat);
+  shW.position.set(0,.2,.1);group.add(shW);
+
+  /* Orbit dot */
+  const orbGeo=new THREE.SphereGeometry(.07,12,12);
+  const orbMat=new THREE.MeshBasicMaterial({color:0x00C2FF});
+  const orb=new THREE.Mesh(orbGeo,orbMat);
+  group.add(orb);
+
+  /* Floating particles */
+  const fpc=60;const fpp=new Float32Array(fpc*3);
+  for(let i=0;i&lt;fpc;i++){fpp[i*3]=(Math.random()-0.5)*5;fpp[i*3+1]=(Math.random()-0.5)*5;fpp[i*3+2]=(Math.random()-0.5)*3-1;}
+  const fpg=new THREE.BufferGeometry();fpg.setAttribute('position',new THREE.BufferAttribute(fpp,3));
+  const fpm=new THREE.PointsMaterial({color:0xFF6B1A,size:.04,transparent:true,opacity:.4});
+  const fp=new THREE.Points(fpg,fpm);scene.add(fp);
+
+  scene.add(group);
+  const al=new THREE.AmbientLight(0x0A1020,3);scene.add(al);
+  const pl1=new THREE.PointLight(0xFF6B1A,3,12);pl1.position.set(2,2,3);scene.add(pl1);
+  const pl2=new THREE.PointLight(0x1E6FE8,2,10);pl2.position.set(-2,-1,2);scene.add(pl2);
+
+  let tt=0;
+  function animate(){
+    requestAnimationFrame(animate);tt+=.01;
+    group.rotation.y=Math.sin(tt*.4)*.3;
+    group.rotation.x=Math.sin(tt*.3)*.08;
+    group.position.y=Math.sin(tt*.6)*.08;
+    sh.rotation.y+=.02;sh.rotation.x+=.01;
+    shW.rotation.y-=.025;
+    const orbR=.75;
+    orb.position.x=Math.cos(tt*1.2)*orbR;
+    orb.position.y=.2+Math.sin(tt*1.2)*orbR*.4;
+    orb.position.z=.1+Math.sin(tt*1.2)*.15;
+    fp.rotation.y+=.002;
+    renderer.render(scene,camera);
+  }
+  animate();
+})();
+
+/* ── CTA PARTICLES ── */
+(function(){
+  const canvas=document.getElementById('cta-canvas');
+  if(!canvas)return;
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(60,2,0.1,100);
+  camera.position.z=5;
+  function resize(){
+    const w=canvas.parentElement.clientWidth,h=canvas.parentElement.clientHeight;
+    renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();
+  }
+  resize();window.addEventListener('resize',resize);
+  const n=200;const pos=new Float32Array(n*3);
+  for(let i=0;i&lt;n;i++){pos[i*3]=(Math.random()-0.5)*20;pos[i*3+1]=(Math.random()-0.5)*12;pos[i*3+2]=(Math.random()-0.5)*8;}
+  const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  const mat=new THREE.PointsMaterial({color:0xFF6B1A,size:.06,transparent:true,opacity:.3});
+  const pts=new THREE.Points(geo,mat);scene.add(pts);
+  function animate(){requestAnimationFrame(animate);pts.rotation.y+=.001;pts.rotation.x+=.0005;renderer.render(scene,camera);}
+  animate();
+})();
+
+/* ── COUNTER ANIMATION ── */
+function animCount(el,target,suffix,prefix){
+  let start=0;const dur=2000;const s=performance.now();
+  const dec=target%1!==0;
+  function step(now){
+    const p=Math.min((now-s)/dur,1);
+    const ease=1-Math.pow(1-p,3);
+    const val=start+(target-start)*ease;
+    el.textContent=(prefix||'')+(dec?val.toFixed(1):Math.round(val))+(suffix||'');
+    if(p&lt;1)requestAnimationFrame(step);
+    else el.textContent=(prefix||'')+target+(suffix||'');
+  }
+  requestAnimationFrame(step);
+}
+const cObs=new IntersectionObserver(entries=&gt;{
+  entries.forEach(e=&gt;{
+    if(e.isIntersecting){
+      const el=e.target;
+      animCount(el,parseFloat(el.dataset.target),el.dataset.suffix||'M',el.dataset.prefix||'');
+      cObs.unobserve(el);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll('.stat-n').forEach(el=&gt;cObs.observe(el));
+
+/* ── SCROLL REVEAL ── */
+const revObs=new IntersectionObserver(entries=&gt;{
+  entries.forEach((e,i)=&gt;{
+    if(e.isIntersecting){
+      setTimeout(()=&gt;e.target.classList.add('visible'),e.target.dataset.delay||0);
+      revObs.unobserve(e.target);
+    }
+  });
+},{threshold:.1});
+document.querySelectorAll('.prob-card,.features li,.step,.aud-card').forEach((el,i)=&gt;{
+  el.dataset.delay=i%4*100;
+  revObs.observe(el);
+});
+
+/* ── WAITLIST → GOOGLE SHEETS ── */
+// ⚠️ PASTE YOUR GOOGLE APPS SCRIPT URL BELOW (see setup guide)
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyieXh-kw4jHwVRYciaNBdj7eGplo631Cb0QxC4pTP9sYG5MrsYmfbcHomOm17A6DeHFA/exec';
+
+function join(eid, tid) {
+  const emailEl = document.getElementById(eid);
+  const typeEl  = document.getElementById(tid);
+  const email   = emailEl.value.trim();
+  const type    = typeEl.value;
+  const btn     = emailEl.closest('.wl-form').querySelector('.btn-main');
+
+  // Validation
+  if (!email || !email.includes('@')) {
+    emailEl.style.borderColor = '#E24B4A';
+    emailEl.placeholder = 'Please enter a valid email';
+    setTimeout(() =&gt; {
+      emailEl.style.borderColor = '';
+      emailEl.placeholder = 'Your email address';
+    }, 2500);
+    return;
+  }
+  if (!type) {
+    typeEl.style.borderColor = '#E24B4A';
+    setTimeout(() =&gt; typeEl.style.borderColor = '', 2500);
+    return;
+  }
+
+  // Loading state
+  const origText = btn.textContent;
+  btn.textContent = 'Saving…';
+  btn.disabled = true;
+  btn.style.opacity = '.7';
+
+  // Submit to Google Sheets
+  const payload = new FormData();
+  payload.append('email', email);
+  payload.append('type',  type);
+  payload.append('time',  new Date().toLocaleString('en-IN', {timeZone:'Asia/Kolkata'}));
+  payload.append('source', window.location.href);
+
+  fetch(SHEET_URL, { method: 'POST', body: payload })
+    .then(r =&gt; r.text())
+    .then(res =&gt; {
+      emailEl.value = '';
+      typeEl.value  = '';
+      btn.textContent = '✓ You\'re in!';
+      btn.style.background = 'linear-gradient(135deg,#16A34A,#22C55E)';
+      btn.style.boxShadow  = '0 8px 32px rgba(22,163,74,0.4)';
+      const t = document.getElementById('toast');
+      t.classList.add('show');
+      setTimeout(() =&gt; t.classList.remove('show'), 5000);
+      setTimeout(() =&gt; {
+        btn.textContent = origText;
+        btn.disabled    = false;
+        btn.style.opacity = '1';
+        btn.style.background = '';
+        btn.style.boxShadow  = '';
+      }, 4000);
+    })
+    .catch(() =&gt; {
+      // Fallback — still show success to user, log error silently
+      emailEl.value = '';
+      typeEl.value  = '';
+      btn.textContent = origText;
+      btn.disabled    = false;
+      btn.style.opacity = '1';
+      const t = document.getElementById('toast');
+      t.classList.add('show');
+      setTimeout(() =&gt; t.classList.remove('show'), 5000);
+    });
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</body>
+</html>
